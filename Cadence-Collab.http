@@ -1,0 +1,6 @@
+@Cadence_Collab_HostAddress = http://localhost:5143
+
+GET {{Cadence_Collab_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
