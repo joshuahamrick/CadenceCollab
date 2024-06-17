@@ -9,6 +9,7 @@ import {
   Navbar,
   NavbarBrand,
   NavbarToggler,
+  NavbarText,
 } from "reactstrap";
 import { logout } from "../managers/authManager";
 
@@ -19,39 +20,61 @@ export default function NavBar({ loggedInUser, setLoggedInUser }) {
 
   return (
     <div>
-      <Navbar color="light" light fixed="true" expand="lg">
+      <Navbar color="light" light fixed="top" expand="lg">
         <NavbarBrand className="mr-auto" tag={RRNavLink} to="/">
-          🧹🧼House Rules
+          Cadence Collab
         </NavbarBrand>
-        {loggedInUser ? (
-          <>
-            <NavbarToggler onClick={toggleNavbar} />
-            <Collapse isOpen={open} navbar>
-              <Nav navbar></Nav>
-            </Collapse>
-            <Button
-              color="primary"
-              onClick={(e) => {
-                e.preventDefault();
-                setOpen(false);
-                logout().then(() => {
-                  setLoggedInUser(null);
-                  setOpen(false);
-                });
-              }}
-            >
-              Logout
-            </Button>
-          </>
-        ) : (
-          <Nav navbar>
-            <NavItem>
-              <NavLink tag={RRNavLink} to="/login">
-                <Button color="primary">Login</Button>
-              </NavLink>
-            </NavItem>
+        <NavbarToggler onClick={toggleNavbar} />
+        <Collapse isOpen={open} navbar>
+          <Nav className="me-auto" navbar>
+            {loggedInUser ? (
+              <>
+                <NavItem>
+                  <NavLink tag={RRNavLink} to="/">
+                    Home
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink tag={RRNavLink} to="/newpost">
+                    New Post
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink tag={RRNavLink} to="/explore">
+                    Explore
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink tag={RRNavLink} to="/profile">
+                    Profile
+                  </NavLink>
+                </NavItem>
+              </>
+            ) : (
+              <NavItem>
+                <NavLink tag={RRNavLink} to="/login">
+                  <Button color="primary">Login</Button>
+                </NavLink>
+              </NavItem>
+            )}
           </Nav>
-        )}
+          {loggedInUser && (
+            <NavbarText>
+              <Button
+                color="primary"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setOpen(false);
+                  logout().then(() => {
+                    setLoggedInUser(null);
+                  });
+                }}
+              >
+                Logout
+              </Button>
+            </NavbarText>
+          )}
+        </Collapse>
       </Navbar>
     </div>
   );

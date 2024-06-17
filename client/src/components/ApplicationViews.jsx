@@ -1,12 +1,15 @@
 import { Route, Routes } from "react-router-dom";
-import Bikes from "./bikes/Bikes";
 import { AuthorizedRoute } from "./auth/AuthorizedRoute";
 import Login from "./auth/Login";
 import Register from "./auth/Register";
-import WorkOrderList from "./workorders/WorkOrderList";
-import CreateWorkOrder from "./workorders/CreateWorkOrder";
+import { HomePagePosts } from "./posts/HomePagePosts";
+import { NewPost } from "./posts/NewPost";
+import { Explore } from "./explore/Explore.jsx";
+import { LoggedInUserProfile } from "./profile/LoggedInUserProfile.jsx";
+import { PostDetails } from "./posts/PostDetails.jsx";
+import { EditPost } from "./posts/EditPost.jsx";
 
-export default function ApplicationViews({ loggedInUser, setLoggedIsnUser }) {
+export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
   return (
     <Routes>
       <Route path="/">
@@ -14,44 +17,51 @@ export default function ApplicationViews({ loggedInUser, setLoggedIsnUser }) {
           index
           element={
             <AuthorizedRoute loggedInUser={loggedInUser}>
-              <Bikes />
+              <HomePagePosts loggedInUser={loggedInUser} />
             </AuthorizedRoute>
           }
         />
         <Route
-          path="bikes"
+          path="song/:songId"
           element={
             <AuthorizedRoute loggedInUser={loggedInUser}>
-              <Bikes />
+              <PostDetails loggedInUser={loggedInUser} />
             </AuthorizedRoute>
           }
         />
-        <Route path="workorders">
-          <Route
-            index
-            element={
-              <AuthorizedRoute loggedInUser={loggedInUser}>
-                <WorkOrderList />
-              </AuthorizedRoute>
-            }
-          />
-          <Route
-            path="create"
-            element={
-              <AuthorizedRoute loggedInUser={loggedInUser}>
-                <CreateWorkOrder />
-              </AuthorizedRoute>
-            }
-          />
-        </Route>
         <Route
-          path="employees"
+          path="song/:songId/edit"
           element={
-            <AuthorizedRoute roles={["Admin"]} loggedInUser={loggedInUser}>
-              <p>Employees</p>
+            <AuthorizedRoute loggedInUser={loggedInUser}>
+              <EditPost loggedInUser={loggedInUser} />
             </AuthorizedRoute>
           }
         />
+        <Route
+          path="newpost"
+          element={
+            <AuthorizedRoute loggedInUser={loggedInUser}>
+              <NewPost loggedInUser={loggedInUser} />
+            </AuthorizedRoute>
+          }
+        />
+        <Route
+          path="explore"
+          element={
+            <AuthorizedRoute loggedInUser={loggedInUser}>
+              <Explore loggedInUser={loggedInUser} />
+            </AuthorizedRoute>
+          }
+        />
+        <Route
+          path="profile"
+          element={
+            <AuthorizedRoute loggedInUser={loggedInUser}>
+              <LoggedInUserProfile loggedInUser={loggedInUser} />
+            </AuthorizedRoute>
+          }
+        />
+
         <Route
           path="login"
           element={<Login setLoggedInUser={setLoggedInUser} />}
