@@ -62,18 +62,20 @@ public class CadenceCollabDbContext : IdentityDbContext<IdentityUser>
             );
 
             modelBuilder.Entity<Type>().HasData(
-                new Type { Id = 1, Name = "Solo" },
-                new Type { Id = 2, Name = "Band" },
-                new Type { Id = 3, Name = "Duo" }
+                 new Type { Id = 1, Name = "Vocals" },
+                new Type { Id = 2, Name = "Instrumentation" },
+                new Type { Id = 3, Name = "Songwriting" },
+                new Type { Id = 4, Name = "Mixing/Mastering" },
+                new Type { Id = 5, Name = "Percussion" }
             );
 
-            modelBuilder.Entity<Artist>().HasData(
-                new Artist { Id = 1, Name = "Artist One", TypeId = 1, Location = "New York", GenreId = 1 },
-                new Artist { Id = 2, Name = "Artist Two", TypeId = 2, Location = "Los Angeles", GenreId = 2 },
-                new Artist { Id = 3, Name = "Artist Three", TypeId = 3, Location = "Chicago", GenreId = 3 },
-                new Artist { Id = 4, Name = "Artist Four", TypeId = 1, Location = "San Francisco", GenreId = 4 },
-                new Artist { Id = 5, Name = "Artist Five", TypeId = 2, Location = "Seattle", GenreId = 5 }
-            );
+            // modelBuilder.Entity<Artist>().HasData(
+            //     new Artist { Id = 1, Name = "Artist One", TypeId = 1, Location = "New York", GenreId = 1 },
+            //     new Artist { Id = 2, Name = "Artist Two", TypeId = 2, Location = "Los Angeles", GenreId = 2 },
+            //     new Artist { Id = 3, Name = "Artist Three", TypeId = 3, Location = "Chicago", GenreId = 3 },
+            //     new Artist { Id = 4, Name = "Artist Four", TypeId = 1, Location = "San Francisco", GenreId = 4 },
+            //     new Artist { Id = 5, Name = "Artist Five", TypeId = 2, Location = "Seattle", GenreId = 5 }
+            // );
 
             modelBuilder.Entity<Song>().HasData(
                 new Song { Id = 1, Title = "Song One", GenreId = 1, TypeId = 1, Description = "Description One" },

@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using CadenceCollab.Data;
 using CadenceCollab.Models;
 using CadenceCollab.Models.DTOs;
+using Microsoft.AspNetCore.Http.HttpResults;
 namespace CadenceCollab.Controllers;
 [ApiController]
 [Route("/api/[controller]")]
@@ -156,5 +157,67 @@ public class SongController : ControllerBase
         _dbContext.SaveChanges();
 
         return NoContent();
+    }
+    
+    [HttpPost]
+    // [Authorize]
+    public IActionResult Create(SongForPostDTO song)
+    {
+        UserProfile foundUserProfile = _dbContext.UserProfiles.SingleOrDefault(up => up.Id == song.UserProfileId);
+        // if (foundUserProfile == null)
+        // {
+        //     return NotFound("No User with that Id found!");
+        // }
+        // Genre foundGenre = _dbContext.Genres.SingleOrDefault(c => c.Id == song.GenreId);
+        // if (foundGenre == null)
+        // {
+        //     return NotFound("No Genre with that Id found!");
+        // }
+
+        // Song newSong = new Song()
+        // {
+        //     UserProfileId = song.UserProfileId,
+        //     CategoryId = song.CategoryId,
+        //     Title = song.Title,
+        //     Content = song.Content,
+        //     HeaderImageURL = song.HeaderImageURL,
+        //     IsApproved = false,
+        //     DateCreated = DateTime.Now,
+        //     PublicationDate = song.PublicationDate
+        // };
+
+        // _dbContext.Songs.Add(newSong);
+        // _dbContext.SaveChanges();
+
+        // SongDTO createdSong = _dbContext.Songs
+        //     .Include(p => p.UserProfile)
+        //     .Include(p => p.Category)
+        //     .Select(p => new SongDTO()
+        //     {
+        //         Id = p.Id,
+        //         Title = p.Title,
+        //         Content = p.Content,
+        //         CategoryId = p.CategoryId,
+        //         UserProfileId = p.UserProfileId,
+        //         DateCreated = p.DateCreated,
+        //         PublicationDate = p.PublicationDate,
+        //         UserProfile = new UserProfileForSongDTO()
+        //         {
+        //             Id = p.UserProfile.Id,
+        //             FirstName = p.UserProfile.FirstName,
+        //             LastName = p.UserProfile.LastName,
+        //             ImageLocation = p.UserProfile.ImageLocation,
+        //             IsActive = p.UserProfile.IsActive
+        //         },
+        //         Category = p.CategoryId == null ? null : new CategoryNoNavDTO()
+        //        chr {
+        //             Id = p.Category.Id,
+        //             Name = p.Category.Name
+        //         }
+        //     })
+        //     .SingleOrDefault(p => p.Id == newSong.Id);
+
+        // return Created($"songs/{createdSong.Id}", createdSong);
+        return Ok();
     }
 }
