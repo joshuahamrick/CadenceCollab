@@ -1,7 +1,8 @@
 
+using CadenceCollab.Models.DTOs;
 using System.ComponentModel.DataAnnotations;
 
-public class Song
+public class SongForPostDTO
 {
     public int Id { get; set; }
 
@@ -20,10 +21,7 @@ public class Song
     public string Description { get; set; }
 
     public string? PictureUrl { get; set; }
-    public string? SongAudioUrl { get; set; }
+    public List<ArtistSongsForSongsDTO> ArtistSongs { get; set; } = new List<ArtistSongsForSongsDTO>();
 
-    // Navigation properties
-    public Genre? Genre { get; set; }
-    public Type? Type { get; set; }
-    public List<ArtistSong> ArtistSongs { get; set; } = new List<ArtistSong>();
+
 }

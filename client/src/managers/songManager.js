@@ -22,6 +22,16 @@ export const updateSong = (song) => {
   });
 };
 
+export const newSong = (song) => {
+  return fetch(`${_dbUrl}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(song),
+  });
+};
+
 export const deleteSong = (songId) => {
   return fetch(`${_dbUrl}/${songId}`, {
     method: "DELETE",

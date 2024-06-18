@@ -13,18 +13,18 @@ export const NewPost = () => {
 
   const navigate = useNavigate();
 
-  const [songUpdate, setSongUpdate] = useState({});
-  const [song, setSong] = useState({});
+  const [songToPost, setSongToPost] = useState({
+    title: "",
+    description: "",
+    lyrics: "",
+    // SongUrl: "",
+    // PictureUrl: "",
+    genreId: 0,
+    typeId: 0,
+  });
+
   const [genres, setGenres] = useState([]);
   const [types, setTypes] = useState([]);
-
-  useEffect(() => {
-    getSongByIdForEdit(songId).then(setSong);
-  }, [songId]);
-
-  useEffect(() => {
-    setSongUpdate(song);
-  }, [song]);
 
   useEffect(() => {
     getAllGenres().then(setGenres);
@@ -36,7 +36,7 @@ export const NewPost = () => {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setSongUpdate((prev) => ({
+    setSongToPost((prev) => ({
       ...prev,
       [name]:
         name === "genreId" || name === "typeId" ? parseInt(value, 10) : value,
@@ -45,12 +45,12 @@ export const NewPost = () => {
 
   const handleSave = (event) => {
     event.preventDefault();
-    updateSong(songUpdate);
+    newSong(songToPost);
     navigate(`/song/${song.id}`);
   };
 
   const handleDelete = () => {
-    deleteSong(songUpdate.id)
+    deleteSong(songToPost.id)
       .then(() => {
         navigate(`/`);
       })
@@ -66,8 +66,8 @@ export const NewPost = () => {
           <input
             name="title"
             type="text"
-            defaultValue={song?.title}
-            // required
+            placeholder="Title"
+            required
             onChange={handleChange}
             className="form-input"
           />
@@ -76,8 +76,8 @@ export const NewPost = () => {
           <textarea
             name="description"
             type="text"
-            defaultValue={song?.description}
-            // required
+            placeholder="Description"
+            required
             onChange={handleChange}
             id="form-big"
             className="form-input"
@@ -87,8 +87,8 @@ export const NewPost = () => {
           <textarea
             name="lyrics"
             type="text"
-            defaultValue={song?.lyrics ? song?.lyrics : ""}
-            // required
+            placeholder="Lyrics"
+            required
             onChange={handleChange}
             id="form-big"
             className="form-input"
@@ -119,7 +119,6 @@ export const NewPost = () => {
             name="genreId"
             className="filter-option"
             onChange={handleChange}
-            value={songUpdate.genreId || ""}
           >
             <option value="">Select Genre</option>
             {genres.map((genre) => (
@@ -134,7 +133,6 @@ export const NewPost = () => {
             name="typeId"
             className="filter-option"
             onChange={handleChange}
-            value={songUpdate.typeId || ""}
           >
             <option value="">Select Type</option>
             {types.map((type) => (
@@ -148,7 +146,6 @@ export const NewPost = () => {
           <button type="submit" className="button">
             Submit
           </button>
-          <button onClick={handleDelete}>Delete</button>
         </fieldset>
       </form>
     </>
