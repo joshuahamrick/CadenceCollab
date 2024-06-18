@@ -20,7 +20,6 @@ public class Song
     public string Description { get; set; }
 
     public string? PictureUrl { get; set; }
-    public string? SongAudioUrl { get; set; }
 
     // Navigation properties
     public Genre? Genre { get; set; }
