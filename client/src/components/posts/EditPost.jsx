@@ -88,6 +88,7 @@ export const EditPost = () => {
             name="lyrics"
             type="text"
             defaultValue={song?.lyrics ? song?.lyrics : ""}
+            placeholder="Lyrics"
             // required
             onChange={handleChange}
             id="form-big"

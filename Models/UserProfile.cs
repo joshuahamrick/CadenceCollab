@@ -16,7 +16,6 @@ public class UserProfile
             return $"{FirstName} {LastName}";
         }
     }
-    public string ArtistName { get; set; }
     public string Address { get; set; }
 
     public string IdentityUserId { get; set; }

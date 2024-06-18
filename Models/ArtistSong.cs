@@ -1,4 +1,4 @@
-
+using CadenceCollab.Models;
 using System.ComponentModel.DataAnnotations;
 
 public class ArtistSong
@@ -6,12 +6,12 @@ public class ArtistSong
     public int Id { get; set; }
 
     [Required]
-    public int ArtistId { get; set; }
+    public int UserProfileId { get; set; }
 
     [Required]
     public int SongId { get; set; }
 
     // Navigation properties
-    public Artist? Artist { get; set; }
+    public UserProfile? UserProfile { get; set; }
     public Song? Song { get; set; }
 }

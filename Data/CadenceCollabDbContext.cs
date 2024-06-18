@@ -7,7 +7,7 @@ namespace CadenceCollab.Data;
 public class CadenceCollabDbContext : IdentityDbContext<IdentityUser>
 {
     private readonly IConfiguration _configuration;
-        public DbSet<Artist> Artists { get; set; }
+        // public DbSet<Artist> Artists { get; set; }
         public DbSet<Song> Songs { get; set; }
         public DbSet<Genre> Genres { get; set; }
         public DbSet<Type> Types { get; set; }
@@ -51,6 +51,110 @@ public class CadenceCollabDbContext : IdentityDbContext<IdentityUser>
             FirstName = "Admina",
             LastName = "Strator",
             Address = "101 Main Street",
+            Location = "Huntsville",
+            TypeId = 3,
+            GenreId = 3,
+            ProfilePictureUrl = null,
+            
+        });
+        modelBuilder.Entity<IdentityUser>().HasData(new IdentityUser
+        {
+            Id = "1a2b3c4d-5678-9abc-def0-1234567890ab",
+            UserName = "User1",
+            Email = "user1@example.com",
+            PasswordHash = new PasswordHasher<IdentityUser>().HashPassword(null, _configuration["AdminPassword"])
+        });
+        modelBuilder.Entity<UserProfile>().HasData(new UserProfile
+        {
+            Id = 2,
+            IdentityUserId = "1a2b3c4d-5678-9abc-def0-1234567890ab",
+            FirstName = "User",
+            LastName = "One",
+            Address = "102 Main Street",
+            Location = "Huntsville",
+            TypeId = 2,
+            GenreId = 1,
+            ProfilePictureUrl = null
+        });
+
+        modelBuilder.Entity<IdentityUser>().HasData(new IdentityUser
+        {
+            Id = "2b3c4d5e-6789-0abc-def1-2345678901bc",
+            UserName = "User2",
+            Email = "user2@example.com",
+            PasswordHash = new PasswordHasher<IdentityUser>().HashPassword(null, _configuration["AdminPassword"])
+        });
+        modelBuilder.Entity<UserProfile>().HasData(new UserProfile
+        {
+            Id = 3,
+            IdentityUserId = "2b3c4d5e-6789-0abc-def1-2345678901bc",
+            FirstName = "User",
+            LastName = "Two",
+            Address = "103 Main Street",
+            Location = "Huntsville",
+            TypeId = 1,
+            GenreId = 2,
+            ProfilePictureUrl = null
+        });
+
+        modelBuilder.Entity<IdentityUser>().HasData(new IdentityUser
+        {
+            Id = "3c4d5e6f-7890-1abc-def2-3456789012cd",
+            UserName = "User3",
+            Email = "user3@example.com",
+            PasswordHash = new PasswordHasher<IdentityUser>().HashPassword(null, _configuration["AdminPassword"])
+        });
+        modelBuilder.Entity<UserProfile>().HasData(new UserProfile
+        {
+            Id = 4,
+            IdentityUserId = "3c4d5e6f-7890-1abc-def2-3456789012cd",
+            FirstName = "User",
+            LastName = "Three",
+            Address = "104 Main Street",
+            Location = "Huntsville",
+            TypeId = 3,
+            GenreId = 3,
+            ProfilePictureUrl = null
+        });
+
+        modelBuilder.Entity<IdentityUser>().HasData(new IdentityUser
+        {
+            Id = "4d5e6f70-8901-2abc-def3-4567890123de",
+            UserName = "User4",
+            Email = "user4@example.com",
+            PasswordHash = new PasswordHasher<IdentityUser>().HashPassword(null, _configuration["AdminPassword"])
+        });
+        modelBuilder.Entity<UserProfile>().HasData(new UserProfile
+        {
+            Id = 5,
+            IdentityUserId = "4d5e6f70-8901-2abc-def3-4567890123de",
+            FirstName = "User",
+            LastName = "Four",
+            Address = "105 Main Street",
+            Location = "Huntsville",
+            TypeId = 2,
+            GenreId = 1,
+            ProfilePictureUrl = null
+        });
+
+        modelBuilder.Entity<IdentityUser>().HasData(new IdentityUser
+        {
+            Id = "5e6f7081-9012-3abc-def4-5678901234ef",
+            UserName = "User5",
+            Email = "user5@example.com",
+            PasswordHash = new PasswordHasher<IdentityUser>().HashPassword(null, _configuration["AdminPassword"])
+        });
+        modelBuilder.Entity<UserProfile>().HasData(new UserProfile
+        {
+            Id = 6,
+            IdentityUserId = "5e6f7081-9012-3abc-def4-5678901234ef",
+            FirstName = "User",
+            LastName = "Five",
+            Address = "106 Main Street",
+            Location = "Huntsville",
+            TypeId = 1,
+            GenreId = 2,
+            ProfilePictureUrl = null
         });
 
         modelBuilder.Entity<Genre>().HasData(
@@ -91,16 +195,16 @@ public class CadenceCollabDbContext : IdentityDbContext<IdentityUser>
             );
 
             modelBuilder.Entity<ArtistSong>().HasData(
-                new ArtistSong { Id = 1, ArtistId = 1, SongId = 1 },
-                new ArtistSong { Id = 2, ArtistId = 2, SongId = 2 },
-                new ArtistSong { Id = 3, ArtistId = 3, SongId = 3 },
-                new ArtistSong { Id = 4, ArtistId = 4, SongId = 4 },
-                new ArtistSong { Id = 5, ArtistId = 5, SongId = 5 },
-                new ArtistSong { Id = 6, ArtistId = 1, SongId = 6 },
-                new ArtistSong { Id = 7, ArtistId = 2, SongId = 7 },
-                new ArtistSong { Id = 8, ArtistId = 3, SongId = 8 },
-                new ArtistSong { Id = 9, ArtistId = 4, SongId = 9 },
-                new ArtistSong { Id = 10, ArtistId = 5, SongId = 10 }
+                new ArtistSong { Id = 1, UserProfileId = 1, SongId = 1 },
+                new ArtistSong { Id = 2, UserProfileId = 2, SongId = 2 },
+                new ArtistSong { Id = 3, UserProfileId = 3, SongId = 3 },
+                new ArtistSong { Id = 4, UserProfileId = 4, SongId = 4 },
+                new ArtistSong { Id = 5, UserProfileId = 5, SongId = 5 },
+                new ArtistSong { Id = 6, UserProfileId = 1, SongId = 6 },
+                new ArtistSong { Id = 7, UserProfileId = 2, SongId = 7 },
+                new ArtistSong { Id = 8, UserProfileId = 3, SongId = 8 },
+                new ArtistSong { Id = 9, UserProfileId = 4, SongId = 9 },
+                new ArtistSong { Id = 10, UserProfileId = 5, SongId = 10 }
             );
     }
 }

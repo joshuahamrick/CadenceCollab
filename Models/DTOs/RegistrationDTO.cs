@@ -8,5 +8,8 @@ public class RegistrationDTO
     public string FirstName { get; set; }
     public string LastName { get; set; }
     public string Address { get; set; }
-
+    public int TypeId { get; set; }
+    public string Location { get; set; }
+    public string ProfilePictureUrl { get; set; }
+    public int GenreId { get; set; }
 }
