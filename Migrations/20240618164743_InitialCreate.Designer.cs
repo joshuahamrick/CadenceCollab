@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Cadence_Collab.Migrations
 {
     [DbContext(typeof(CadenceCollabDbContext))]
-    [Migration("20240612165644_InitialCreate")]
+    [Migration("20240618164743_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -25,82 +25,6 @@ namespace Cadence_Collab.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("Artist", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("GenreId")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("Location")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("ProfilePic")
-                        .HasColumnType("text");
-
-                    b.Property<int>("TypeId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("GenreId");
-
-                    b.HasIndex("TypeId");
-
-                    b.ToTable("Artists");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            GenreId = 1,
-                            Location = "New York",
-                            Name = "Artist One",
-                            TypeId = 1
-                        },
-                        new
-                        {
-                            Id = 2,
-                            GenreId = 2,
-                            Location = "Los Angeles",
-                            Name = "Artist Two",
-                            TypeId = 2
-                        },
-                        new
-                        {
-                            Id = 3,
-                            GenreId = 3,
-                            Location = "Chicago",
-                            Name = "Artist Three",
-                            TypeId = 3
-                        },
-                        new
-                        {
-                            Id = 4,
-                            GenreId = 4,
-                            Location = "San Francisco",
-                            Name = "Artist Four",
-                            TypeId = 1
-                        },
-                        new
-                        {
-                            Id = 5,
-                            GenreId = 5,
-                            Location = "Seattle",
-                            Name = "Artist Five",
-                            TypeId = 2
-                        });
-                });
-
             modelBuilder.Entity("ArtistSong", b =>
                 {
                     b.Property<int>("Id")
@@ -109,17 +33,17 @@ namespace Cadence_Collab.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("ArtistId")
+                    b.Property<int>("SongId")
                         .HasColumnType("integer");
 
-                    b.Property<int>("SongId")
+                    b.Property<int>("UserProfileId")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ArtistId");
-
                     b.HasIndex("SongId");
+
+                    b.HasIndex("UserProfileId");
 
                     b.ToTable("ArtistSongs");
 
@@ -127,62 +51,62 @@ namespace Cadence_Collab.Migrations
                         new
                         {
                             Id = 1,
-                            ArtistId = 1,
-                            SongId = 1
+                            SongId = 1,
+                            UserProfileId = 1
                         },
                         new
                         {
                             Id = 2,
-                            ArtistId = 2,
-                            SongId = 2
+                            SongId = 2,
+                            UserProfileId = 2
                         },
                         new
                         {
                             Id = 3,
-                            ArtistId = 3,
-                            SongId = 3
+                            SongId = 3,
+                            UserProfileId = 3
                         },
                         new
                         {
                             Id = 4,
-                            ArtistId = 4,
-                            SongId = 4
+                            SongId = 4,
+                            UserProfileId = 4
                         },
                         new
                         {
                             Id = 5,
-                            ArtistId = 5,
-                            SongId = 5
+                            SongId = 5,
+                            UserProfileId = 5
                         },
                         new
                         {
                             Id = 6,
-                            ArtistId = 1,
-                            SongId = 6
+                            SongId = 6,
+                            UserProfileId = 1
                         },
                         new
                         {
                             Id = 7,
-                            ArtistId = 2,
-                            SongId = 7
+                            SongId = 7,
+                            UserProfileId = 2
                         },
                         new
                         {
                             Id = 8,
-                            ArtistId = 3,
-                            SongId = 8
+                            SongId = 8,
+                            UserProfileId = 3
                         },
                         new
                         {
                             Id = 9,
-                            ArtistId = 4,
-                            SongId = 9
+                            SongId = 9,
+                            UserProfileId = 4
                         },
                         new
                         {
                             Id = 10,
-                            ArtistId = 5,
-                            SongId = 10
+                            SongId = 10,
+                            UserProfileId = 5
                         });
                 });
 
@@ -202,6 +126,9 @@ namespace Cadence_Collab.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<int>("GenreId")
+                        .HasColumnType("integer");
+
                     b.Property<string>("IdentityUserId")
                         .IsRequired()
                         .HasColumnType("text");
@@ -210,9 +137,23 @@ namespace Cadence_Collab.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<string>("Location")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("ProfilePictureUrl")
+                        .HasColumnType("text");
+
+                    b.Property<int>("TypeId")
+                        .HasColumnType("integer");
+
                     b.HasKey("Id");
 
+                    b.HasIndex("GenreId");
+
                     b.HasIndex("IdentityUserId");
+
+                    b.HasIndex("TypeId");
 
                     b.ToTable("UserProfiles");
 
@@ -222,8 +163,66 @@ namespace Cadence_Collab.Migrations
                             Id = 1,
                             Address = "101 Main Street",
                             FirstName = "Admina",
+                            GenreId = 3,
                             IdentityUserId = "dbc40bc6-0829-4ac5-a3ed-180f5e916a5f",
-                            LastName = "Strator"
+                            LastName = "Strator",
+                            Location = "Huntsville",
+                            TypeId = 3
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Address = "102 Main Street",
+                            FirstName = "User",
+                            GenreId = 1,
+                            IdentityUserId = "1a2b3c4d-5678-9abc-def0-1234567890ab",
+                            LastName = "One",
+                            Location = "Huntsville",
+                            TypeId = 2
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Address = "103 Main Street",
+                            FirstName = "User",
+                            GenreId = 2,
+                            IdentityUserId = "2b3c4d5e-6789-0abc-def1-2345678901bc",
+                            LastName = "Two",
+                            Location = "Huntsville",
+                            TypeId = 1
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Address = "104 Main Street",
+                            FirstName = "User",
+                            GenreId = 3,
+                            IdentityUserId = "3c4d5e6f-7890-1abc-def2-3456789012cd",
+                            LastName = "Three",
+                            Location = "Huntsville",
+                            TypeId = 3
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Address = "105 Main Street",
+                            FirstName = "User",
+                            GenreId = 1,
+                            IdentityUserId = "4d5e6f70-8901-2abc-def3-4567890123de",
+                            LastName = "Four",
+                            Location = "Huntsville",
+                            TypeId = 2
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Address = "106 Main Street",
+                            FirstName = "User",
+                            GenreId = 2,
+                            IdentityUserId = "5e6f7081-9012-3abc-def4-5678901234ef",
+                            LastName = "Five",
+                            Location = "Huntsville",
+                            TypeId = 1
                         });
                 });
 
@@ -398,15 +397,85 @@ namespace Cadence_Collab.Migrations
                         {
                             Id = "dbc40bc6-0829-4ac5-a3ed-180f5e916a5f",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "0e19c32d-6427-44f4-8b39-14acc8e6793c",
+                            ConcurrencyStamp = "2ab3330c-a0c1-4ec5-9cc3-0d91709584b6",
                             Email = "admina@strator.comx",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAEKIyYjnG109nPnvbymOm0G9RlT6Y1rDYjnpUqSNOwzfAhNXAv2H8XS0CI9jFICQIIg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAENb7cUCFyIj0OwEOniRX934ZWHOPxU5GYT524sY0VjFGd3oThgn89035E0SC60GcIA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "f658d476-f6fe-43f4-b485-0b16f5b49996",
+                            SecurityStamp = "de904931-c976-4cc2-86cb-ef3cc632cbc8",
                             TwoFactorEnabled = false,
                             UserName = "Administrator"
+                        },
+                        new
+                        {
+                            Id = "1a2b3c4d-5678-9abc-def0-1234567890ab",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "a7932fb0-d8cd-4d9f-94f6-1c79c17e53d5",
+                            Email = "user1@example.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            PasswordHash = "AQAAAAIAAYagAAAAENFpvj49j6JuIpZezi7fH/pUWd5hgpEYGi8DcLBuWhqwWQ+1GX9UiLjI8R49ODE5uw==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "8a37b1c4-2d9a-4b63-985f-4cc185bace87",
+                            TwoFactorEnabled = false,
+                            UserName = "User1"
+                        },
+                        new
+                        {
+                            Id = "2b3c4d5e-6789-0abc-def1-2345678901bc",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "9dad2958-489a-40f6-8f01-6d673aa2ea84",
+                            Email = "user2@example.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            PasswordHash = "AQAAAAIAAYagAAAAEF0qse3Xor23KLTq1yUsQiai56J/mBD0xrRPl7R3SeVC2lleTQeiG57ofy4SjYg0kQ==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "661dfbdd-7077-43b2-8591-4b42172d1d2a",
+                            TwoFactorEnabled = false,
+                            UserName = "User2"
+                        },
+                        new
+                        {
+                            Id = "3c4d5e6f-7890-1abc-def2-3456789012cd",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "f3088127-171c-49c2-bd75-b2448c64b738",
+                            Email = "user3@example.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            PasswordHash = "AQAAAAIAAYagAAAAEFrELOrpdmnQN0kQKpPgVgPbMoHJhqGuhrDubZ1mua+LHJExxMZiToMm9av68QgyZw==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "bfd4ae67-f9b7-4e00-a2ff-f7d6869e2305",
+                            TwoFactorEnabled = false,
+                            UserName = "User3"
+                        },
+                        new
+                        {
+                            Id = "4d5e6f70-8901-2abc-def3-4567890123de",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "cd295139-70ef-49b5-8990-238af9d92847",
+                            Email = "user4@example.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            PasswordHash = "AQAAAAIAAYagAAAAEPueUJNBajitw2PTuAifVGyUvemBQGAsuHR5bubN2g0JusLyEtcZ4T7/B0M/iJnORg==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "34162121-99a8-4bbf-8fd3-f84676a4154f",
+                            TwoFactorEnabled = false,
+                            UserName = "User4"
+                        },
+                        new
+                        {
+                            Id = "5e6f7081-9012-3abc-def4-5678901234ef",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "7ce8fb41-6a96-47d7-bea4-22979fc8f36a",
+                            Email = "user5@example.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            PasswordHash = "AQAAAAIAAYagAAAAEJMc01vxh/LBeY3KtbK9atwXmSaVVHOaYIbzQCs8kuiZ9WlIw/NNdy3BwrWwDQSwOQ==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "6f2e11b4-5b19-4b17-92db-5c3f7e4be55c",
+                            TwoFactorEnabled = false,
+                            UserName = "User5"
                         });
                 });
 
@@ -517,6 +586,9 @@ namespace Cadence_Collab.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("PictureUrl")
+                        .HasColumnType("text");
+
+                    b.Property<string>("SongAudioUrl")
                         .HasColumnType("text");
 
                     b.Property<string>("Title")
@@ -637,25 +709,60 @@ namespace Cadence_Collab.Migrations
                         new
                         {
                             Id = 1,
-                            Name = "Solo"
+                            Name = "Vocals"
                         },
                         new
                         {
                             Id = 2,
-                            Name = "Band"
+                            Name = "Instrumentation"
                         },
                         new
                         {
                             Id = 3,
-                            Name = "Duo"
+                            Name = "Songwriting"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "Mixing/Mastering"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Name = "Percussion"
                         });
                 });
 
-            modelBuilder.Entity("Artist", b =>
+            modelBuilder.Entity("ArtistSong", b =>
+                {
+                    b.HasOne("Song", "Song")
+                        .WithMany("ArtistSongs")
+                        .HasForeignKey("SongId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CadenceCollab.Models.UserProfile", "UserProfile")
+                        .WithMany("ArtistSongs")
+                        .HasForeignKey("UserProfileId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Song");
+
+                    b.Navigation("UserProfile");
+                });
+
+            modelBuilder.Entity("CadenceCollab.Models.UserProfile", b =>
                 {
                     b.HasOne("Genre", "Genre")
                         .WithMany("Artists")
                         .HasForeignKey("GenreId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "IdentityUser")
+                        .WithMany()
+                        .HasForeignKey("IdentityUserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -667,37 +774,9 @@ namespace Cadence_Collab.Migrations
 
                     b.Navigation("Genre");
 
-                    b.Navigation("Type");
-                });
-
-            modelBuilder.Entity("ArtistSong", b =>
-                {
-                    b.HasOne("Artist", "Artist")
-                        .WithMany("ArtistSongs")
-                        .HasForeignKey("ArtistId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Song", "Song")
-                        .WithMany("ArtistSongs")
-                        .HasForeignKey("SongId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Artist");
-
-                    b.Navigation("Song");
-                });
-
-            modelBuilder.Entity("CadenceCollab.Models.UserProfile", b =>
-                {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "IdentityUser")
-                        .WithMany()
-                        .HasForeignKey("IdentityUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("IdentityUser");
+
+                    b.Navigation("Type");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -770,7 +849,7 @@ namespace Cadence_Collab.Migrations
                     b.Navigation("Type");
                 });
 
-            modelBuilder.Entity("Artist", b =>
+            modelBuilder.Entity("CadenceCollab.Models.UserProfile", b =>
                 {
                     b.Navigation("ArtistSongs");
                 });

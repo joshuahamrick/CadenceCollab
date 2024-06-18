@@ -2,12 +2,21 @@ import { useState } from "react";
 import { register } from "../../managers/authManager";
 import { Link, useNavigate } from "react-router-dom";
 import { Button, FormFeedback, FormGroup, Input, Label } from "reactstrap";
+import { getAllGenres } from "../../managers/genreManager";
+import { getAllTypes } from "../../managers/typeManager";
 
 export default function Register({ setLoggedInUser }) {
+  const [genres, setGenres] = useState([]);
+  const [types, setTypes] = useState([]);
+
+  const [profilePictureUrl, setProfilePictureUrl] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
+  const [location, setLocation] = useState("");
+  const [type, setType] = useState("");
+  const [genre, setGenre] = useState("");
   const [address, setAddress] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -16,6 +25,14 @@ export default function Register({ setLoggedInUser }) {
   const [registrationFailure, setRegistrationFailure] = useState(false);
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    getAllGenres().then(setGenres);
+  }, []);
+
+  useEffect(() => {
+    getAllTypes().then(setTypes);
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -30,6 +47,10 @@ export default function Register({ setLoggedInUser }) {
         email,
         address,
         password,
+        typeId,
+        location,
+        profilePictureUrl,
+        genreId,
       };
       register(newUser).then((user) => {
         if (user) {
@@ -45,6 +66,16 @@ export default function Register({ setLoggedInUser }) {
   return (
     <div className="container" style={{ maxWidth: "500px" }}>
       <h3>Sign Up</h3>
+      <FormGroup>
+        <Label>Profile Picture Url</Label>
+        <Input
+          type="text"
+          value={profilePictureUrl}
+          onChange={(e) => {
+            setProfilePictureUrl(e.target.value);
+          }}
+        />
+      </FormGroup>
       <FormGroup>
         <Label>First Name</Label>
         <Input
@@ -86,6 +117,16 @@ export default function Register({ setLoggedInUser }) {
         />
       </FormGroup>
       <FormGroup>
+        <Label>Location</Label>
+        <Input
+          type="text"
+          value={location}
+          onChange={(e) => {
+            setLocation(e.target.value);
+          }}
+        />
+      </FormGroup>
+      <FormGroup>
         <Label>Address</Label>
         <Input
           type="text"
@@ -95,6 +136,36 @@ export default function Register({ setLoggedInUser }) {
           }}
         />
       </FormGroup>
+      <fieldset>
+        <select
+          name="genreId"
+          className="filter-option"
+          onChange={setGenre}
+          value={songUpdate.genreId || ""}
+        >
+          <option value="">Select Genre</option>
+          {genres.map((genre) => (
+            <option key={genre.id} value={genre.id}>
+              {genre.name}
+            </option>
+          ))}
+        </select>
+      </fieldset>
+      <fieldset>
+        <select
+          name="typeId"
+          className="filter-option"
+          onChange={setType}
+          value={songUpdate.typeId || ""}
+        >
+          <option value="">Select Type</option>
+          {types.map((type) => (
+            <option key={type.id} value={type.id}>
+              {type.name}
+            </option>
+          ))}
+        </select>
+      </fieldset>
       <FormGroup>
         <Label>Password</Label>
         <Input

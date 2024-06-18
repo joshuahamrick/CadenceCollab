@@ -7,11 +7,11 @@ public class ArtistSongsForSongsDTO
     public int Id { get; set; }
 
     [Required]
-    public int ArtistId { get; set; }
+    public int UserProfileId { get; set; }
 
     [Required]
     public int SongId { get; set; }
 
     // Navigation properties
-    public ArtistForSongListDTO? Artist { get; set; }
+    public UserProfileForSongListDTO? UserProfile { get; set; }
 }
