@@ -18,7 +18,7 @@ export const HomePagePosts = ({ loggedInUser }) => {
           <CardBody>
             <div className="d-flex justify-content-between">
               <div>
-                <div>{s.artistSongs[0].userProfile.name}</div>
+                <div>{s.artistSongs[0]?.userProfile.name}</div>
                 <Link to={`/song/${s.id}`}>{s.title}</Link>
               </div>
               <div className="text-right">{s.type.name}</div>

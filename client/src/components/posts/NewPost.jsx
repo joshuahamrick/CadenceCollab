@@ -1,19 +1,14 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import {
-  deleteSong,
-  getSongByIdForEdit,
-  updateSong,
-} from "../../managers/songManager";
 import { getAllGenres } from "../../managers/genreManager";
 import { getAllTypes } from "../../managers/typeManager";
+import { postArtistSong } from "../../managers/artistSongManager";
+import { newSong } from "../../managers/songManager";
 
-export const NewPost = () => {
-  const { songId } = useParams();
-
+export const NewPost = ({ loggedInUser }) => {
   const navigate = useNavigate();
 
-  const [songToPost, setSongToPost] = useState({
+  const [song, setSong] = useState({
     title: "",
     description: "",
     lyrics: "",
@@ -22,9 +17,28 @@ export const NewPost = () => {
     genreId: 0,
     typeId: 0,
   });
-
+  const [postedSongId, setPostedSongId] = useState(0);
+  const [artistSong, setArtistSong] = useState({
+    songId: 0,
+    userProfileId: loggedInUser.id,
+  });
   const [genres, setGenres] = useState([]);
   const [types, setTypes] = useState([]);
+  useEffect(() => {
+    if (postedSongId !== 0) {
+      // Ensure postedSongId is truthy before proceeding
+      const handlePostAndNavigate = async () => {
+        try {
+          await postArtistSong(artistSong);
+          navigate(`/song/${postedSongId}`);
+        } catch (error) {
+          console.error("Error posting artist song:", error);
+        }
+      };
+
+      handlePostAndNavigate();
+    }
+  }, [postedSongId]); // Only depend on postedSongId, not artistSong directly
 
   useEffect(() => {
     getAllGenres().then(setGenres);
@@ -36,7 +50,7 @@ export const NewPost = () => {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setSongToPost((prev) => ({
+    setSong((prev) => ({
       ...prev,
       [name]:
         name === "genreId" || name === "typeId" ? parseInt(value, 10) : value,
@@ -45,19 +59,20 @@ export const NewPost = () => {
 
   const handleSave = (event) => {
     event.preventDefault();
-    newSong(songToPost);
-    navigate(`/song/${song.id}`);
-  };
-
-  const handleDelete = () => {
-    deleteSong(songToPost.id)
-      .then(() => {
-        navigate(`/`);
+    newSong(song)
+      .then((postedSong) => {
+        setPostedSongId(postedSong.id);
+        // Update artistSong state after setting postedSongId
+        setArtistSong({
+          songId: postedSong.id,
+          userProfileId: loggedInUser.id,
+        });
       })
       .catch((error) => {
-        console.error("Error deleting song:", error);
+        console.error("Error creating new song:", error);
       });
   };
+
   return (
     <>
       <h1>New Post</h1>
