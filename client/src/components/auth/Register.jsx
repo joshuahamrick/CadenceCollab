@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { register } from "../../managers/authManager";
 import { Link, useNavigate } from "react-router-dom";
 import { Button, FormFeedback, FormGroup, Input, Label } from "reactstrap";
@@ -137,12 +137,7 @@ export default function Register({ setLoggedInUser }) {
         />
       </FormGroup>
       <fieldset>
-        <select
-          name="genreId"
-          className="filter-option"
-          onChange={setGenre}
-          value={songUpdate.genreId || ""}
-        >
+        <select name="genreId" className="filter-option" onChange={setGenre}>
           <option value="">Select Genre</option>
           {genres.map((genre) => (
             <option key={genre.id} value={genre.id}>
@@ -152,12 +147,7 @@ export default function Register({ setLoggedInUser }) {
         </select>
       </fieldset>
       <fieldset>
-        <select
-          name="typeId"
-          className="filter-option"
-          onChange={setType}
-          value={songUpdate.typeId || ""}
-        >
+        <select name="typeId" className="filter-option" onChange={setType}>
           <option value="">Select Type</option>
           {types.map((type) => (
             <option key={type.id} value={type.id}>

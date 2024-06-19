@@ -14,7 +14,7 @@ export const PostDetails = ({ loggedInUser }) => {
   return (
     <>
       <h1>{song.title}</h1>
-      <p>{song.artistSongs[0].userProfile?.name}</p>
+      {/* <p>{song.artistSongs[0]?.userProfile?.name}</p> */}
       <p>{song.genre?.name}</p>
       <p>{song.type?.name}</p>
       <p>{song.description}</p>
