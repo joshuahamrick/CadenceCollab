@@ -12,11 +12,11 @@ Users can collaborate by helping with various musical needs like writing lyrics,
 - C#/.NET
 - ASP.NET Core
 - PostgreSQL 16
-- HTML5
-- CSS3
 - Bootstrap
 - EFCore
 - LINQ
+- HTML5
+- CSS3
 
 ## Database
 
