@@ -21,7 +21,7 @@ Users can collaborate by helping with various musical needs like writing lyrics,
 
 PostgreSQL using PgAdmin
 
-The Data and Migrations folder in the root directory contain the initial data created for this project.
+The Data and Migrations folders in the root directory contain the initial data created for this project.
 
 ## Installation and Setup
 
