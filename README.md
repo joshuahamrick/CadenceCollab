@@ -27,8 +27,6 @@ The Data and Migrations folders in the root directory contain the initial data c
 
 Clone down this repository. You will need  npm and node installed globally on your machine, as well as PGAdmin to run the database on your machine.
 
-### Installation
->npm install
 #### Installation
 Navigate to the cloned directory and run the following
 ```
