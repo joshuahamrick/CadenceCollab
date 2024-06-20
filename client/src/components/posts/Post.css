@@ -1,3 +1,12 @@
 .post-container {
   margin: 5px;
 }
+.mb-3 {
+  background-color: rgba(188, 188, 188, 0.533);
+}
+
+body {
+  background-color: rgb(133, 165, 138);
+  /* background-image: url("musicimage.webp"); */
+  background-size: 100%;
+}

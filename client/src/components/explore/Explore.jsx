@@ -11,19 +11,18 @@ export const Explore = () => {
 
   return (
     <>
-      <h1 style={{ margin: "80px auto 40px auto" }}>Collaboration Station</h1>
+      <h1 style={{ margin: "80px auto 40px auto" }}>Explore</h1>
       {userProfiles.map((up) => (
-        <Card key={up.id} className="mb-3">
+        <Card key={up.id} className="mb-3" style={{ width: "350px" }}>
           <CardBody>
-            <div className="d-flex justify-content-between">
+            <div>
               <div>
-                <div>{up.userName}</div>
-                <div>{up.location}</div>
-                <div>{up.typeName}</div>
-                <div>{up.genreName}</div>
+                <h5>{up.userName}</h5>
+                <div>Location: {up.location}</div>
+                <div>Type: {up.typeName}</div>
+                <div>Genre: {up.genreName}</div>
               </div>
             </div>
-            <div style={{ border: "2px solid black" }}>playbar</div>
           </CardBody>
         </Card>
       ))}

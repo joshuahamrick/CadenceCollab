@@ -16,13 +16,12 @@ export const LoggedInUserProfile = ({ loggedInUser }) => {
         <CardBody>
           <div className="d-flex justify-content-between">
             <div>
-              <div>{userProfile?.userName}</div>
-              <div>{userProfile?.location}</div>
-              <div>{userProfile?.typeName}</div>
-              <div>{userProfile?.genreName}</div>
+              <h5>User Name: {userProfile?.userName}</h5>
+              <div>Location: {userProfile?.location}</div>
+              <div>Type: {userProfile?.typeName}</div>
+              <div>Genre: {userProfile?.genreName}</div>
             </div>
           </div>
-          <div style={{ border: "2px solid black" }}>playbar</div>
         </CardBody>
       </Card>
     </>
