@@ -64,7 +64,7 @@ npm run dev
 
 ## Future Development
 In this rough draft version the core functionality is still under production.
-The end goal of this project is to have full functionality allowing people to upload full audio files straight from each users individual DAW, or from simple mp3s, and to have other users capable of dowloading and implementing changes, to then re-upload them for the initial artist to review. 
+The end goal of this project is to have full functionality allowing people to upload full audio files straight from each users individual DAW, or from simple mp3s/mp4s, and to have other users capable of dowloading and implementing changes, to then re-upload them for the initial artist to review. 
 ## WireFrame
 [CadenceCollab Project WireFrame](https://miro.com/app/board/uXjVK-_YtS4=/?share_link_id=361459759356)
 ## ERDiagram
