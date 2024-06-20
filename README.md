@@ -10,6 +10,7 @@ Users can collaborate by helping with various musical needs like writing lyrics,
 
 - ReactJS
 - C#/.NET
+- ASP.NET Core
 - PostgreSQL 16
 - HTML5
 - CSS3
