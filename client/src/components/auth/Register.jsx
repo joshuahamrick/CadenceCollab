@@ -15,13 +15,13 @@ export default function Register({ setLoggedInUser }) {
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [location, setLocation] = useState("");
-  const [type, setType] = useState("");
-  const [genre, setGenre] = useState("");
+  const [typeId, setTypeId] = useState(null); // Changed to null
+  const [genreId, setGenreId] = useState(null); // Changed to null
   const [address, setAddress] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const [passwordMismatch, setPasswordMismatch] = useState();
+  const [passwordMismatch, setPasswordMismatch] = useState(false);
   const [registrationFailure, setRegistrationFailure] = useState(false);
 
   const navigate = useNavigate();
@@ -33,6 +33,14 @@ export default function Register({ setLoggedInUser }) {
   useEffect(() => {
     getAllTypes().then(setTypes);
   }, []);
+
+  const handleGenreChange = (e) => {
+    setGenreId(parseInt(e.target.value)); // Parse the selected value to integer
+  };
+
+  const handleTypeChange = (e) => {
+    setTypeId(parseInt(e.target.value)); // Parse the selected value to integer
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -47,19 +55,28 @@ export default function Register({ setLoggedInUser }) {
         email,
         address,
         password,
-        typeId,
+        typeId, // Ensure typeId is passed correctly
         location,
         profilePictureUrl,
-        genreId,
+        genreId, // Ensure genreId is passed correctly
       };
-      register(newUser).then((user) => {
-        if (user) {
-          setLoggedInUser(user);
-          navigate("/");
-        } else {
+
+      console.log("Submitting new user:", newUser); // Log user data
+
+      register(newUser)
+        .then((user) => {
+          if (user) {
+            setLoggedInUser(user);
+            navigate("/");
+          } else {
+            console.error("Registration failed:", user); // Log error response
+            setRegistrationFailure(true);
+          }
+        })
+        .catch((error) => {
+          console.error("Error during registration:", error); // Log any errors
           setRegistrationFailure(true);
-        }
-      });
+        });
     }
   };
 
@@ -136,8 +153,13 @@ export default function Register({ setLoggedInUser }) {
           }}
         />
       </FormGroup>
-      <fieldset>
-        <select name="genreId" className="filter-option" onChange={setGenre}>
+      <FormGroup>
+        <Label>Genre</Label>
+        <select
+          name="genreId"
+          className="form-control"
+          onChange={handleGenreChange}
+        >
           <option value="">Select Genre</option>
           {genres.map((genre) => (
             <option key={genre.id} value={genre.id}>
@@ -145,9 +167,14 @@ export default function Register({ setLoggedInUser }) {
             </option>
           ))}
         </select>
-      </fieldset>
-      <fieldset>
-        <select name="typeId" className="filter-option" onChange={setType}>
+      </FormGroup>
+      <FormGroup>
+        <Label>Type</Label>
+        <select
+          name="typeId"
+          className="form-control"
+          onChange={handleTypeChange}
+        >
           <option value="">Select Type</option>
           {types.map((type) => (
             <option key={type.id} value={type.id}>
@@ -155,7 +182,7 @@ export default function Register({ setLoggedInUser }) {
             </option>
           ))}
         </select>
-      </fieldset>
+      </FormGroup>
       <FormGroup>
         <Label>Password</Label>
         <Input
@@ -169,7 +196,7 @@ export default function Register({ setLoggedInUser }) {
         />
       </FormGroup>
       <FormGroup>
-        <Label> Confirm Password</Label>
+        <Label>Confirm Password</Label>
         <Input
           invalid={passwordMismatch}
           type="password"
@@ -187,7 +214,7 @@ export default function Register({ setLoggedInUser }) {
       <Button
         color="primary"
         onClick={handleSubmit}
-        disabled={passwordMismatch}
+        disabled={passwordMismatch || !typeId || !genreId}
       >
         Register
       </Button>

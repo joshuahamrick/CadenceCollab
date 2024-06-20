@@ -6,7 +6,7 @@ export const postArtistSong = (artistSong) => {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(artistSong``),
+    body: JSON.stringify(artistSong),
   };
 
   return fetch(_dbUrl, postOptions);
