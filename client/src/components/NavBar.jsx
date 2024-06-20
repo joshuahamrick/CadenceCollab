@@ -12,7 +12,7 @@ import {
   NavbarText,
 } from "reactstrap";
 import { logout } from "../managers/authManager";
-
+import "./posts/Post.css";
 export default function NavBar({ loggedInUser, setLoggedInUser }) {
   const [open, setOpen] = useState(false);
 
@@ -20,7 +20,7 @@ export default function NavBar({ loggedInUser, setLoggedInUser }) {
 
   return (
     <div>
-      <Navbar color="light" light fixed="top" expand="lg">
+      <Navbar className="mb-3" light fixed="top" expand="lg">
         <NavbarBrand className="mr-auto" tag={RRNavLink} to="/">
           Cadence Collab
         </NavbarBrand>

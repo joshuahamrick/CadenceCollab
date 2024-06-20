@@ -170,10 +170,10 @@ namespace Cadence_Collab.Migrations
                         {
                             Id = 2,
                             Address = "102 Main Street",
-                            FirstName = "User",
+                            FirstName = "Liam",
                             GenreId = 1,
                             IdentityUserId = "1a2b3c4d-5678-9abc-def0-1234567890ab",
-                            LastName = "One",
+                            LastName = "Walker",
                             Location = "Huntsville",
                             TypeId = 2
                         },
@@ -181,10 +181,10 @@ namespace Cadence_Collab.Migrations
                         {
                             Id = 3,
                             Address = "103 Main Street",
-                            FirstName = "User",
+                            FirstName = "Olivia",
                             GenreId = 2,
                             IdentityUserId = "2b3c4d5e-6789-0abc-def1-2345678901bc",
-                            LastName = "Two",
+                            LastName = "Smith",
                             Location = "Huntsville",
                             TypeId = 1
                         },
@@ -192,10 +192,10 @@ namespace Cadence_Collab.Migrations
                         {
                             Id = 4,
                             Address = "104 Main Street",
-                            FirstName = "User",
+                            FirstName = "Noah",
                             GenreId = 3,
                             IdentityUserId = "3c4d5e6f-7890-1abc-def2-3456789012cd",
-                            LastName = "Three",
+                            LastName = "Johnson",
                             Location = "Huntsville",
                             TypeId = 3
                         },
@@ -203,10 +203,10 @@ namespace Cadence_Collab.Migrations
                         {
                             Id = 5,
                             Address = "105 Main Street",
-                            FirstName = "User",
+                            FirstName = "Emma",
                             GenreId = 1,
                             IdentityUserId = "4d5e6f70-8901-2abc-def3-4567890123de",
-                            LastName = "Four",
+                            LastName = "Brown",
                             Location = "Huntsville",
                             TypeId = 2
                         },
@@ -214,10 +214,10 @@ namespace Cadence_Collab.Migrations
                         {
                             Id = 6,
                             Address = "106 Main Street",
-                            FirstName = "User",
+                            FirstName = "Ava",
                             GenreId = 2,
                             IdentityUserId = "5e6f7081-9012-3abc-def4-5678901234ef",
-                            LastName = "Five",
+                            LastName = "Davis",
                             Location = "Huntsville",
                             TypeId = 1
                         });
@@ -297,7 +297,7 @@ namespace Cadence_Collab.Migrations
                         {
                             Id = "c3aaeb97-d2ba-4a53-a521-4eea61e59b35",
                             Name = "Admin",
-                            NormalizedName = "admin"
+                            NormalizedName = "ADMIN"
                         });
                 });
 
@@ -394,13 +394,13 @@ namespace Cadence_Collab.Migrations
                         {
                             Id = "dbc40bc6-0829-4ac5-a3ed-180f5e916a5f",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2ab3330c-a0c1-4ec5-9cc3-0d91709584b6",
+                            ConcurrencyStamp = "ccd2b431-1b10-4e1c-90be-46e952d1932a",
                             Email = "admina@strator.comx",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAENb7cUCFyIj0OwEOniRX934ZWHOPxU5GYT524sY0VjFGd3oThgn89035E0SC60GcIA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEBr2TY3m/3rFC5xaFetmM1bjQYoUWzVXyoYw0YwJcRyeEIbGRaDKLO6+77kDt3daCQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "de904931-c976-4cc2-86cb-ef3cc632cbc8",
+                            SecurityStamp = "7b7f80c6-39b2-4fde-badf-1e7857e22de8",
                             TwoFactorEnabled = false,
                             UserName = "Administrator"
                         },
@@ -408,71 +408,71 @@ namespace Cadence_Collab.Migrations
                         {
                             Id = "1a2b3c4d-5678-9abc-def0-1234567890ab",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "a7932fb0-d8cd-4d9f-94f6-1c79c17e53d5",
-                            Email = "user1@example.com",
+                            ConcurrencyStamp = "bcf072b2-8c7c-4631-b05d-e7332679dc47",
+                            Email = "liam.walker@example.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAENFpvj49j6JuIpZezi7fH/pUWd5hgpEYGi8DcLBuWhqwWQ+1GX9UiLjI8R49ODE5uw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEFriB5MLy3o9xCfB1YZEG3/Zm/YmSNZjUqat2QJq6mTjWhxQn5M9bMb8qiYuIPkyOA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "8a37b1c4-2d9a-4b63-985f-4cc185bace87",
+                            SecurityStamp = "d395daa2-02f2-4cee-929d-09874c06c29b",
                             TwoFactorEnabled = false,
-                            UserName = "User1"
+                            UserName = "LiamWalker"
                         },
                         new
                         {
                             Id = "2b3c4d5e-6789-0abc-def1-2345678901bc",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "9dad2958-489a-40f6-8f01-6d673aa2ea84",
-                            Email = "user2@example.com",
+                            ConcurrencyStamp = "71fabedc-03c0-4208-bcb8-6dc747f50946",
+                            Email = "olivia.smith@example.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAEF0qse3Xor23KLTq1yUsQiai56J/mBD0xrRPl7R3SeVC2lleTQeiG57ofy4SjYg0kQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEER8t1EhvJMfIHF9YwreG9YcFxiRzCgTPHbCv8pHYBhpGM8gVIHfGyOpU8CjlAomNQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "661dfbdd-7077-43b2-8591-4b42172d1d2a",
+                            SecurityStamp = "993e0cc0-9453-4f7e-ac14-760914fda363",
                             TwoFactorEnabled = false,
-                            UserName = "User2"
+                            UserName = "OliviaSmith"
                         },
                         new
                         {
                             Id = "3c4d5e6f-7890-1abc-def2-3456789012cd",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "f3088127-171c-49c2-bd75-b2448c64b738",
-                            Email = "user3@example.com",
+                            ConcurrencyStamp = "3fd60502-c49e-4423-a182-19c0274645c6",
+                            Email = "noah.johnson@example.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAEFrELOrpdmnQN0kQKpPgVgPbMoHJhqGuhrDubZ1mua+LHJExxMZiToMm9av68QgyZw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJm9NM33tzlwg4aFEMTNzSAmJigdYiZ+GIiL6G9h5slgUXfNIR6slC/071Wci7lNpQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "bfd4ae67-f9b7-4e00-a2ff-f7d6869e2305",
+                            SecurityStamp = "d7fa2544-8b53-48fb-9f7b-a09db5ff54ea",
                             TwoFactorEnabled = false,
-                            UserName = "User3"
+                            UserName = "NoahJohnson"
                         },
                         new
                         {
                             Id = "4d5e6f70-8901-2abc-def3-4567890123de",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "cd295139-70ef-49b5-8990-238af9d92847",
-                            Email = "user4@example.com",
+                            ConcurrencyStamp = "0bb8fabc-b304-47c8-ac8b-838cb43dcbd1",
+                            Email = "emma.brown@example.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAEPueUJNBajitw2PTuAifVGyUvemBQGAsuHR5bubN2g0JusLyEtcZ4T7/B0M/iJnORg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEEM7Bwg776LZyl2uEmYgv+g3yYywkOKL1yoQ6BSTnRdWOK1E0mAbwGeciLjtIgybxQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "34162121-99a8-4bbf-8fd3-f84676a4154f",
+                            SecurityStamp = "1750bcd0-f6e3-4bd2-8cc9-fae5a46a203a",
                             TwoFactorEnabled = false,
-                            UserName = "User4"
+                            UserName = "EmmaBrown"
                         },
                         new
                         {
                             Id = "5e6f7081-9012-3abc-def4-5678901234ef",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "7ce8fb41-6a96-47d7-bea4-22979fc8f36a",
-                            Email = "user5@example.com",
+                            ConcurrencyStamp = "cbf4c86b-26bf-42a1-838f-84733a2bdd03",
+                            Email = "ava.davis@example.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAEJMc01vxh/LBeY3KtbK9atwXmSaVVHOaYIbzQCs8kuiZ9WlIw/NNdy3BwrWwDQSwOQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEGxknQiDW//Ua+SIHTNks/vz1qDD0SftT5o/GhLvSnzSH3zE33j32Wv+FR197103Pg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "6f2e11b4-5b19-4b17-92db-5c3f7e4be55c",
+                            SecurityStamp = "926b05c8-6b70-4c11-9c11-d0f8e34d374d",
                             TwoFactorEnabled = false,
-                            UserName = "User5"
+                            UserName = "AvaDavis"
                         });
                 });
 
@@ -607,81 +607,91 @@ namespace Cadence_Collab.Migrations
                         new
                         {
                             Id = 1,
-                            Description = "Description One",
+                            Description = "A haunting rock ballad",
                             GenreId = 1,
-                            Title = "Song One",
+                            Lyrics = "In the shadows, where dreams lie broken, echoes of silence, words unspoken...",
+                            Title = "Echoes of Silence",
                             TypeId = 1
                         },
                         new
                         {
                             Id = 2,
-                            Description = "Description Two",
+                            Description = "An upbeat pop anthem",
                             GenreId = 2,
-                            Title = "Song Two",
+                            Lyrics = "Shining lights, city nights, chasing those pop star dreams tonight...",
+                            Title = "Pop Star Dreams",
                             TypeId = 2
                         },
                         new
                         {
                             Id = 3,
-                            Description = "Description Three",
+                            Description = "Smooth jazz tune",
                             GenreId = 3,
-                            Title = "Song Three",
+                            Lyrics = "Under the moonlight, we sway, jazz in the night, leads the way...",
+                            Title = "Jazz in the Night",
                             TypeId = 3
                         },
                         new
                         {
                             Id = 4,
-                            Description = "Description Four",
+                            Description = "A serene classical piece",
                             GenreId = 4,
-                            Title = "Song Four",
+                            Lyrics = "Instrumental melodies that drift and soar, a classical reverie forevermore...",
+                            Title = "Classical Reverie",
                             TypeId = 1
                         },
                         new
                         {
                             Id = 5,
-                            Description = "Description Five",
+                            Description = "A powerful hip-hop track",
                             GenreId = 5,
-                            Title = "Song Five",
+                            Lyrics = "On the streets, we hustle and grind, hip-hop beats, always on my mind...",
+                            Title = "Hip-Hop Hustle",
                             TypeId = 2
                         },
                         new
                         {
                             Id = 6,
-                            Description = "Description Six",
+                            Description = "An energetic rock song",
                             GenreId = 1,
-                            Title = "Song Six",
+                            Lyrics = "With a rock and roll heart, we never part, music flows, right from the start...",
+                            Title = "Rock and Roll Heart",
                             TypeId = 2
                         },
                         new
                         {
                             Id = 7,
-                            Description = "Description Seven",
+                            Description = "A catchy pop love song",
                             GenreId = 2,
-                            Title = "Song Seven",
+                            Lyrics = "Dancing in the rain, pop love so sweet, feeling the beat, as our hearts meet...",
+                            Title = "Pop Love",
                             TypeId = 3
                         },
                         new
                         {
                             Id = 8,
-                            Description = "Description Eight",
+                            Description = "A cool jazz track",
                             GenreId = 3,
-                            Title = "Song Eight",
+                            Lyrics = "In the jazz cafe, we play all night, melodies sway, in the soft light...",
+                            Title = "Jazz Cafe",
                             TypeId = 1
                         },
                         new
                         {
                             Id = 9,
-                            Description = "Description Nine",
+                            Description = "A grand symphonic piece",
                             GenreId = 4,
-                            Title = "Song Nine",
+                            Lyrics = "Instrumental symphony that dreams unfold, a timeless tale forever told...",
+                            Title = "Symphony of Dreams",
                             TypeId = 2
                         },
                         new
                         {
                             Id = 10,
-                            Description = "Description Ten",
+                            Description = "A modern hip-hop tune",
                             GenreId = 5,
-                            Title = "Song Ten",
+                            Lyrics = "In the city, urban vibes collide, beats and rhymes, on a wild ride...",
+                            Title = "Urban Vibes",
                             TypeId = 3
                         });
                 });

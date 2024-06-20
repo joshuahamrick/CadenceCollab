@@ -283,19 +283,19 @@ namespace Cadence_Collab.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "c3aaeb97-d2ba-4a53-a521-4eea61e59b35", null, "Admin", "admin" });
+                values: new object[] { "c3aaeb97-d2ba-4a53-a521-4eea61e59b35", null, "Admin", "ADMIN" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "1a2b3c4d-5678-9abc-def0-1234567890ab", 0, "a7932fb0-d8cd-4d9f-94f6-1c79c17e53d5", "user1@example.com", false, false, null, null, null, "AQAAAAIAAYagAAAAENFpvj49j6JuIpZezi7fH/pUWd5hgpEYGi8DcLBuWhqwWQ+1GX9UiLjI8R49ODE5uw==", null, false, "8a37b1c4-2d9a-4b63-985f-4cc185bace87", false, "User1" },
-                    { "2b3c4d5e-6789-0abc-def1-2345678901bc", 0, "9dad2958-489a-40f6-8f01-6d673aa2ea84", "user2@example.com", false, false, null, null, null, "AQAAAAIAAYagAAAAEF0qse3Xor23KLTq1yUsQiai56J/mBD0xrRPl7R3SeVC2lleTQeiG57ofy4SjYg0kQ==", null, false, "661dfbdd-7077-43b2-8591-4b42172d1d2a", false, "User2" },
-                    { "3c4d5e6f-7890-1abc-def2-3456789012cd", 0, "f3088127-171c-49c2-bd75-b2448c64b738", "user3@example.com", false, false, null, null, null, "AQAAAAIAAYagAAAAEFrELOrpdmnQN0kQKpPgVgPbMoHJhqGuhrDubZ1mua+LHJExxMZiToMm9av68QgyZw==", null, false, "bfd4ae67-f9b7-4e00-a2ff-f7d6869e2305", false, "User3" },
-                    { "4d5e6f70-8901-2abc-def3-4567890123de", 0, "cd295139-70ef-49b5-8990-238af9d92847", "user4@example.com", false, false, null, null, null, "AQAAAAIAAYagAAAAEPueUJNBajitw2PTuAifVGyUvemBQGAsuHR5bubN2g0JusLyEtcZ4T7/B0M/iJnORg==", null, false, "34162121-99a8-4bbf-8fd3-f84676a4154f", false, "User4" },
-                    { "5e6f7081-9012-3abc-def4-5678901234ef", 0, "7ce8fb41-6a96-47d7-bea4-22979fc8f36a", "user5@example.com", false, false, null, null, null, "AQAAAAIAAYagAAAAEJMc01vxh/LBeY3KtbK9atwXmSaVVHOaYIbzQCs8kuiZ9WlIw/NNdy3BwrWwDQSwOQ==", null, false, "6f2e11b4-5b19-4b17-92db-5c3f7e4be55c", false, "User5" },
-                    { "dbc40bc6-0829-4ac5-a3ed-180f5e916a5f", 0, "2ab3330c-a0c1-4ec5-9cc3-0d91709584b6", "admina@strator.comx", false, false, null, null, null, "AQAAAAIAAYagAAAAENb7cUCFyIj0OwEOniRX934ZWHOPxU5GYT524sY0VjFGd3oThgn89035E0SC60GcIA==", null, false, "de904931-c976-4cc2-86cb-ef3cc632cbc8", false, "Administrator" }
+                    { "1a2b3c4d-5678-9abc-def0-1234567890ab", 0, "bcf072b2-8c7c-4631-b05d-e7332679dc47", "liam.walker@example.com", false, false, null, null, null, "AQAAAAIAAYagAAAAEFriB5MLy3o9xCfB1YZEG3/Zm/YmSNZjUqat2QJq6mTjWhxQn5M9bMb8qiYuIPkyOA==", null, false, "d395daa2-02f2-4cee-929d-09874c06c29b", false, "LiamWalker" },
+                    { "2b3c4d5e-6789-0abc-def1-2345678901bc", 0, "71fabedc-03c0-4208-bcb8-6dc747f50946", "olivia.smith@example.com", false, false, null, null, null, "AQAAAAIAAYagAAAAEER8t1EhvJMfIHF9YwreG9YcFxiRzCgTPHbCv8pHYBhpGM8gVIHfGyOpU8CjlAomNQ==", null, false, "993e0cc0-9453-4f7e-ac14-760914fda363", false, "OliviaSmith" },
+                    { "3c4d5e6f-7890-1abc-def2-3456789012cd", 0, "3fd60502-c49e-4423-a182-19c0274645c6", "noah.johnson@example.com", false, false, null, null, null, "AQAAAAIAAYagAAAAEJm9NM33tzlwg4aFEMTNzSAmJigdYiZ+GIiL6G9h5slgUXfNIR6slC/071Wci7lNpQ==", null, false, "d7fa2544-8b53-48fb-9f7b-a09db5ff54ea", false, "NoahJohnson" },
+                    { "4d5e6f70-8901-2abc-def3-4567890123de", 0, "0bb8fabc-b304-47c8-ac8b-838cb43dcbd1", "emma.brown@example.com", false, false, null, null, null, "AQAAAAIAAYagAAAAEEM7Bwg776LZyl2uEmYgv+g3yYywkOKL1yoQ6BSTnRdWOK1E0mAbwGeciLjtIgybxQ==", null, false, "1750bcd0-f6e3-4bd2-8cc9-fae5a46a203a", false, "EmmaBrown" },
+                    { "5e6f7081-9012-3abc-def4-5678901234ef", 0, "cbf4c86b-26bf-42a1-838f-84733a2bdd03", "ava.davis@example.com", false, false, null, null, null, "AQAAAAIAAYagAAAAEGxknQiDW//Ua+SIHTNks/vz1qDD0SftT5o/GhLvSnzSH3zE33j32Wv+FR197103Pg==", null, false, "926b05c8-6b70-4c11-9c11-d0f8e34d374d", false, "AvaDavis" },
+                    { "dbc40bc6-0829-4ac5-a3ed-180f5e916a5f", 0, "ccd2b431-1b10-4e1c-90be-46e952d1932a", "admina@strator.comx", false, false, null, null, null, "AQAAAAIAAYagAAAAEBr2TY3m/3rFC5xaFetmM1bjQYoUWzVXyoYw0YwJcRyeEIbGRaDKLO6+77kDt3daCQ==", null, false, "7b7f80c6-39b2-4fde-badf-1e7857e22de8", false, "Administrator" }
                 });
 
             migrationBuilder.InsertData(
@@ -332,16 +332,16 @@ namespace Cadence_Collab.Migrations
                 columns: new[] { "Id", "Description", "GenreId", "Lyrics", "PictureUrl", "SongAudioUrl", "Title", "TypeId" },
                 values: new object[,]
                 {
-                    { 1, "Description One", 1, null, null, null, "Song One", 1 },
-                    { 2, "Description Two", 2, null, null, null, "Song Two", 2 },
-                    { 3, "Description Three", 3, null, null, null, "Song Three", 3 },
-                    { 4, "Description Four", 4, null, null, null, "Song Four", 1 },
-                    { 5, "Description Five", 5, null, null, null, "Song Five", 2 },
-                    { 6, "Description Six", 1, null, null, null, "Song Six", 2 },
-                    { 7, "Description Seven", 2, null, null, null, "Song Seven", 3 },
-                    { 8, "Description Eight", 3, null, null, null, "Song Eight", 1 },
-                    { 9, "Description Nine", 4, null, null, null, "Song Nine", 2 },
-                    { 10, "Description Ten", 5, null, null, null, "Song Ten", 3 }
+                    { 1, "A haunting rock ballad", 1, "In the shadows, where dreams lie broken, echoes of silence, words unspoken...", null, null, "Echoes of Silence", 1 },
+                    { 2, "An upbeat pop anthem", 2, "Shining lights, city nights, chasing those pop star dreams tonight...", null, null, "Pop Star Dreams", 2 },
+                    { 3, "Smooth jazz tune", 3, "Under the moonlight, we sway, jazz in the night, leads the way...", null, null, "Jazz in the Night", 3 },
+                    { 4, "A serene classical piece", 4, "Instrumental melodies that drift and soar, a classical reverie forevermore...", null, null, "Classical Reverie", 1 },
+                    { 5, "A powerful hip-hop track", 5, "On the streets, we hustle and grind, hip-hop beats, always on my mind...", null, null, "Hip-Hop Hustle", 2 },
+                    { 6, "An energetic rock song", 1, "With a rock and roll heart, we never part, music flows, right from the start...", null, null, "Rock and Roll Heart", 2 },
+                    { 7, "A catchy pop love song", 2, "Dancing in the rain, pop love so sweet, feeling the beat, as our hearts meet...", null, null, "Pop Love", 3 },
+                    { 8, "A cool jazz track", 3, "In the jazz cafe, we play all night, melodies sway, in the soft light...", null, null, "Jazz Cafe", 1 },
+                    { 9, "A grand symphonic piece", 4, "Instrumental symphony that dreams unfold, a timeless tale forever told...", null, null, "Symphony of Dreams", 2 },
+                    { 10, "A modern hip-hop tune", 5, "In the city, urban vibes collide, beats and rhymes, on a wild ride...", null, null, "Urban Vibes", 3 }
                 });
 
             migrationBuilder.InsertData(
@@ -350,11 +350,11 @@ namespace Cadence_Collab.Migrations
                 values: new object[,]
                 {
                     { 1, "101 Main Street", "Admina", 3, "dbc40bc6-0829-4ac5-a3ed-180f5e916a5f", "Strator", "Huntsville", null, 3 },
-                    { 2, "102 Main Street", "User", 1, "1a2b3c4d-5678-9abc-def0-1234567890ab", "One", "Huntsville", null, 2 },
-                    { 3, "103 Main Street", "User", 2, "2b3c4d5e-6789-0abc-def1-2345678901bc", "Two", "Huntsville", null, 1 },
-                    { 4, "104 Main Street", "User", 3, "3c4d5e6f-7890-1abc-def2-3456789012cd", "Three", "Huntsville", null, 3 },
-                    { 5, "105 Main Street", "User", 1, "4d5e6f70-8901-2abc-def3-4567890123de", "Four", "Huntsville", null, 2 },
-                    { 6, "106 Main Street", "User", 2, "5e6f7081-9012-3abc-def4-5678901234ef", "Five", "Huntsville", null, 1 }
+                    { 2, "102 Main Street", "Liam", 1, "1a2b3c4d-5678-9abc-def0-1234567890ab", "Walker", "Huntsville", null, 2 },
+                    { 3, "103 Main Street", "Olivia", 2, "2b3c4d5e-6789-0abc-def1-2345678901bc", "Smith", "Huntsville", null, 1 },
+                    { 4, "104 Main Street", "Noah", 3, "3c4d5e6f-7890-1abc-def2-3456789012cd", "Johnson", "Huntsville", null, 3 },
+                    { 5, "105 Main Street", "Emma", 1, "4d5e6f70-8901-2abc-def3-4567890123de", "Brown", "Huntsville", null, 2 },
+                    { 6, "106 Main Street", "Ava", 2, "5e6f7081-9012-3abc-def4-5678901234ef", "Davis", "Huntsville", null, 1 }
                 });
 
             migrationBuilder.InsertData(
