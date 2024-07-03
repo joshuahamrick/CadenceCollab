@@ -10,3 +10,9 @@ body {
   /* background-image: url("musicimage.webp"); */
   background-size: 100%;
 }
+.purple-tag {
+  color: rgb(44, 79, 44);
+}
+.purple-tag:hover {
+  color: purple;
+}

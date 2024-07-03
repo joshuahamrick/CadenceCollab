@@ -23,7 +23,7 @@ export const PostDetails = ({ loggedInUser }) => {
 
   return (
     <>
-      <h1>{song.title}</h1>
+      <h2>{song.title}</h2>
       {song.artistSongs?.map((artistSong) => (
         <p key={artistSong.id}>{artistSong.userProfile?.name}</p>
       ))}

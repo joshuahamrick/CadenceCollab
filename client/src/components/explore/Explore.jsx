@@ -13,7 +13,14 @@ export const Explore = () => {
     <>
       <h1 style={{ margin: "80px auto 40px auto" }}>Explore</h1>
       {userProfiles.map((up) => (
-        <Card key={up.id} className="mb-3" style={{ width: "350px" }}>
+        <Card
+          key={up.id}
+          className="mb-3"
+          style={{
+            width: "350px",
+            boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.25) ",
+          }}
+        >
           <CardBody>
             <div>
               <div>
