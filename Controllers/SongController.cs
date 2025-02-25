@@ -198,8 +198,9 @@ public class SongController : ControllerBase
             Title = s.Title, 
             TypeId = s.TypeId   
         }).Single(s => s.Id == newSong.Id);
-
+        // unnecessary querying
         
         return Created($"songs/{createdSong.Id}", createdSong);
+        //success code 201 With location header and the full created song DTO
     }
 }
